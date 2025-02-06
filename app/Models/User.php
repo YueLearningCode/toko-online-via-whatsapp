@@ -45,4 +45,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Relasi ke tabel keranjang.
+     * 
+     * User memiliki banyak keranjang.
+     */
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
+
 }

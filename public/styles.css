@@ -1,0 +1,414 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #533fdb;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-logo img {
+    width: 90px; /* Membuat logo lebih besar */
+    height: auto;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Beri jarak antara ikon dan teks */
+}
+
+.logo-text i {
+    font-size: 28px; /* Ukuran ikon lebih besar */
+    color: white;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-menu li {
+    margin-left: 30px; /* Memberi lebih banyak jarak antar menu */
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+    text-decoration: underline;
+    font-size: 22px; /* Efek hover yang menonjol */
+}
+
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, white #e2dfdf);
+    color: rgb(0, 0, 0);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-section .brand {
+    color: #533fdb;
+    font-style: italic;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Button Primary */
+.btn-primary {
+    display: inline-block;
+    margin-top: auto;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #25d366;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1da851;
+    transform: scale(1.1);
+}
+
+
+
+/* Header */
+header {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Products Section */
+.products {
+    padding: 40px 0;
+}
+
+/* Pusatkan judul Produk Kami */
+.products h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Perbaiki tampilan produk */
+.product-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-item {
+    width: 300px; /* Lebih kecil dari sebelumnya */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Styling untuk daftar produk */
+.products-list .product-item {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling untuk keranjang */
+.cart-table .product-item {
+    width: auto;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    display: table-row;
+}
+
+.cart-table input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+.cart-table .btn-danger {
+    font-size: 14px;
+}
+
+
+
+.product-item img {
+    max-width: 80%; /* Sesuaikan agar tidak terlalu besar */
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-item p {
+    min-height: 40px; /* Sesuaikan tinggi minimum agar sejajar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-details {
+    min-height: 80px; /* Tambahkan tinggi agar cukup untuk tiga elemen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-details .description,
+.product-details .price,
+.product-details .stock {
+    min-height: 30px; /* Sesuaikan tinggi agar sejajar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-details .price {
+    font-weight: bold;
+    color: #28a745; /* Warna hijau untuk menonjolkan harga */
+    margin-top: 5px;
+}
+
+.product-details .stock {
+    font-size: 14px;
+    color: #ff5733; /* Warna merah jika ingin menonjolkan stok */
+}
+
+
+.btn-add-to-cart {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #25d366; /* Hijau seperti WhatsApp */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #1da851; /* Warna lebih gelap saat hover */
+}
+
+
+footer {
+    background-color: #533fdb;
+    color: white;
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+
+
+.footer-left h3 {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.footer-left p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.footer-column {
+    margin-left: 30px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #bbb;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+hr {
+    border: 0.5px solid #555;
+    margin: 15px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 12px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-save {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
