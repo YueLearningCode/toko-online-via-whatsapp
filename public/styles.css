@@ -7,7 +7,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #533fdb;
+    background-color: #673499;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -97,7 +97,7 @@ body {
 }
 
 .hero-section .brand {
-    color: #533fdb;
+    color: #673499;
     font-style: italic;
 }
 
@@ -269,7 +269,7 @@ header {
 
 
 footer {
-    background-color: #533fdb;
+    background-color: #673499;
     color: white;
     padding: 20px 0;
 }
@@ -411,4 +411,5 @@ hr {
     width: 100%;
     margin-top: 10px;
 }
+
 
