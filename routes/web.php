@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::post('register', [RegisteredUserController::class, 'store']);
 
 // Sertakan rute dari auth.php
 require __DIR__.'/auth.php';
+
+Route::post('/product/update', [ProductController::class, 'update'])->name('product.update');
 
 
 

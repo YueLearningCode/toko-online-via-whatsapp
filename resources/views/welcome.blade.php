@@ -10,6 +10,10 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
 
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+
+
     </head>
 <body>
     <!-- Navbar -->
@@ -25,8 +29,8 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
                 <script>
                     AOS.init({
-                        duration: 1000, // Durasi animasi
-                        once: true, // Animasi hanya sekali saat di-scroll
+                        duration: 1000, 
+                        once: true, 
                     });
                 </script>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -48,7 +52,7 @@
 
                 @auth
                     <!-- Jika pengguna sudah login -->
-                    <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-fill"></i> Dashboard</a></li>
+                    <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-circle"></i>Profile</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -65,18 +69,28 @@
     </nav>
 
 
-    <!-- Header Section -->
+   <!-- Header Section -->
     <header id="home" class="hero-section">
-        <div class="container text-center">
-            <h1 data-aos="fade-down">Welcome to <span class="brand">FlashStore</span></h1>
-            <p data-aos="fade-up" data-aos-delay="200">Checkout seamlessly via WhatsApp</p>
-            @if (Auth::check() && Auth::user()->role === 'admin')
-                <a class="btn btn-primary btn-lg" href="halamantambah" role="button" data-aos="zoom-in" data-aos-delay="400">
+        <div class="container hero-content">
+            <!-- Bagian Kiri: Teks -->
+            <div class="hero-text">
+                <h1 data-aos="fade-down">Welcome to <span class="brand">FlashStore</span></h1>
+                <p data-aos="fade-up" data-aos-delay="200">Checkout seamlessly via <i class="bi bi-whatsapp"></i>WhatsApp</p>
+                
+                @if (Auth::check() && Auth::user()->role === 'admin')
+                    <a class="submit-btn admin-btn" href="halamantambah" role="button" data-aos="zoom-in" data-aos-delay="400">
                     Tambah Produk
-                </a>
-            @endif
+                    </a>
+                @endif
+            </div>  
+
+            <!-- Bagian Kanan: Gambar -->
+            <div class="hero-image" data-aos="fade-left">
+                <img src="{{ asset('images/FlashStoreN.jpg') }}" alt="FlashStore Illustration">
+            </div>
         </div>  
     </header>
+
 
 
     <!-- Products Section -->
@@ -94,9 +108,16 @@
                     <h3>{{ $product['name'] }}</h3>
                     <div class="product-details">
                         <p class="description">{{ $product['description'] }}</p>
-                        <p class="stock">Stock: {{ $product['stock'] }}</p>
-                        <p class="price">Price: ${{ $product['price'] }}</p>
+                        <p class="stock">Stock: <span id="stock-{{ $product['id'] }}">{{ $product['stock'] }}</span></p>
+                        <p class="price">Price: $<span id="price-{{ $product['id'] }}">{{ $product['price'] }}</span></p>
                     </div>
+
+                    @if (Auth::check() && Auth::user()->role === 'admin')
+                        <button class="edit-btn" data-id="{{ $product['id'] }}" data-stock="{{ $product['stock'] }}" data-price="{{ $product['price'] }}">
+                            Edit
+                        </button>
+                    @endif
+
                     <form action="{{ route('add-to-keranjang') }}" method="POST">
                         @csrf
                         <input type="hidden" name="id" value="{{ $product['id'] }}">
@@ -104,11 +125,27 @@
                         <input type="hidden" name="price" value="{{ $product['price'] }}">
                         <button type="submit" class="btn-add-to-cart">Tambah Keranjang</button>
                     </form>
-                </div>                
-                @endforeach
+                </div>
+                <div id="editModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Edit Produk</h2>
+                        <form id="editForm">
+                            @csrf
+                            <input type="hidden" id="edit-id" name="id">
+                            <label>Stock:</label>
+                            <input type="number" id="edit-stock" name="stock" required>
+                            <label>Price:</label>
+                            <input type="number" id="edit-price" name="price" required>
+                            <button type="submit" class="btn-save">Simpan</button>
+                        </form>
+                    </div>
+                </div>                                
+            @endforeach
             </div>
         </div>
     </section>
+
     
 
     <!-- Footer Section -->
@@ -139,7 +176,7 @@
                     </div>
                     <div class="footer-column">
                         <h4>Contacts</h4>
-                        <p>📞 853 6383 4829</p>
+                        <p>📞 123 4567 8090</p>
                         <p>📧 flashstore@gmail.com</p>
                         <div class="social-icons">
                             <a href="https://www.facebook.com/flashsoftindonesia/"><img src="images/facebook.png" alt="Facebook"></a>
@@ -183,7 +220,69 @@
                 modal.style.display = "none";
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+        const editButtons = document.querySelectorAll(".edit-btn");
+        const modal = document.getElementById("editModal");
+        const closeModal = document.querySelector(".close");
+        const editForm = document.getElementById("editForm");
+        const editId = document.getElementById("edit-id");
+        const editStock = document.getElementById("edit-stock");
+        const editPrice = document.getElementById("edit-price");
+    
+        editButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                editId.value = this.dataset.id;
+                editStock.value = this.dataset.stock;
+                editPrice.value = this.dataset.price;
+                modal.style.display = "block";
+            });
+        });
+    
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+    
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    
+        editForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+    
+            fetch("{{ route('product.update') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: editId.value,
+                    stock: editStock.value,
+                    price: editPrice.value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("stock-" + editId.value).textContent = editStock.value;
+                    document.getElementById("price-" + editId.value).textContent = editPrice.value;
+                    modal.style.display = "none";
+                    alert("Produk berhasil diperbarui!");
+                } else {
+                    alert("Gagal memperbarui produk.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
     </script>
-        
 
 </body>
+
+
+
+
+{{-- aaaaaaaaaaaaa --}}

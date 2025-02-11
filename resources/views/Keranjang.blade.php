@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -89,7 +91,9 @@
                     </table>
                     <p>Total: ${{ number_format($total, 2) }}</p>
                     <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-bag-check-fill"></i>Perbarui Keranjang</button>
+                        <button type="submit" class="btn-update-cart">
+                            <i class="bi bi-bag-check-fill"></i> Perbarui Keranjang
+                        </button>                        
                         @php
                             $pesan = 'Halo, saya ingin memesan produk berikut:';
                             foreach ($keranjang as $item) {
@@ -97,9 +101,9 @@
                             }
                             $pesan .= 'Terima kasih!';
                         @endphp
-                        <a class="btn btn-success" href="https://wa.me/123456789?text={{ urlencode($pesan) }}" target="_blank">
+                        <a class="btn-whatsapp" href="https://wa.me/123456789?text={{ urlencode($pesan) }}" target="_blank">
                             <i class="bi bi-telephone-fill"></i> Pesan sekarang
-                        </a>
+                        </a>                        
                     </div>
                 </form>
             @else

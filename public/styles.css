@@ -7,7 +7,7 @@ body {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #673499;
+    background-color: #6DC7D1;
     padding: 20px;
     position: sticky;
     top: 0;
@@ -34,7 +34,7 @@ body {
 .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: #E2F3F4;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: flex;
@@ -44,7 +44,7 @@ body {
 
 .logo-text i {
     font-size: 28px; /* Ukuran ikon lebih besar */
-    color: white;
+    
 }
 
 .navbar-menu {
@@ -59,7 +59,7 @@ body {
 }
 
 .navbar-menu li a {
-    color: white;
+    color: #E2F3F4;
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
@@ -83,52 +83,138 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right, white #e2dfdf);
+    background: linear-gradient(to right, #E2F3F4, #CDE5E7);
     color: rgb(0, 0, 0);
-    padding: 100px 0;
-    text-align: center;
+    padding: 150px 0;
     position: relative;
     overflow: hidden;
 }
 
-.hero-section h1 {
+/* Gunakan Flexbox */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Bagian Teks di Kiri */
+.hero-text {
+    max-width: 50%;
+    text-align: left;
+}
+
+.hero-text h1 {
     font-size: 3rem;
     font-weight: bold;
 }
 
-.hero-section .brand {
-    color: #673499;
+.hero-text .brand {
+    color: #6DC7D1;
     font-style: italic;
 }
 
-.hero-section p {
+.hero-text p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-/* Button Primary */
-.btn-primary {
-    display: inline-block;
-    margin-top: auto;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #25d366;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+/* Bagian Gambar di Kanan */
+.hero-image {
+    max-width: 50%;
 }
 
-.btn-primary:hover {
-    background-color: #1da851;
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Tombol WhatsApp */
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366; /* Warna hijau khas WhatsApp */
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp i {
+    font-size: 20px;
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+    transition: transform 0.2s ease;
+}
+
+/* Efek hover untuk tombol */
+.btn-whatsapp:hover {
+    background-color: #128c7e; /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek hover untuk ikon */
+.btn-whatsapp:hover i {
     transform: scale(1.1);
+}
+
+
+/* Tombol Perbarui Keranjang */
+.btn-update-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Warna biru untuk tombol */
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-update-cart i {
+    font-size: 20px;
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+    transition: transform 0.2s ease;
+}
+
+/* Efek hover untuk tombol */
+.btn-update-cart:hover {
+    background-color: #0056b3; /* Warna biru lebih gelap saat hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek hover untuk ikon */
+.btn-update-cart:hover i {
+    transform: scale(1.1);
+}
+
+/* Efek fokus untuk tombol */
+.btn-update-cart:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
 
 
 /* Header */
 header {
-    background-color: #f8f9fa;
+    background-color: #E2F3F4;
     padding: 20px 0;
     text-align: center;
 }
@@ -136,6 +222,7 @@ header {
 /* Products Section */
 .products {
     padding: 40px 0;
+    background-color: #E2F3F4;
 }
 
 /* Pusatkan judul Produk Kami */
@@ -154,12 +241,12 @@ header {
 }
 
 .product-item {
-    width: 300px; /* Lebih kecil dari sebelumnya */
+    width: 300px; 
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    background-color: #fff;
+    background-color: #FFFAFA;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -170,16 +257,17 @@ header {
 
 .product-item:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Styling untuk daftar produk */
 .products-list .product-item {
     width: 200px;
-    border: 1px solid #ddd;
+    border: 1px solid #E2F3F4;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    background-color: #fff;
+    background-color:#E2F3F4;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -251,26 +339,30 @@ header {
 
 
 .btn-add-to-cart {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ffffff;
-    background-color: #25d366; /* Hijau seperti WhatsApp */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25d366; 
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 8px;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
     font-weight: bold;
-    border: none;
-    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .btn-add-to-cart:hover {
-    background-color: #1da851; /* Warna lebih gelap saat hover */
+    font-size: 20px;
+    margin-right: 10px; 
+    transition: transform 0.2s ease;
 }
 
 
 footer {
-    background-color: #673499;
-    color: white;
+    background-color: #6DC7D1;
+    color: #E2F3F4;
     padding: 20px 0;
 }
 
@@ -367,24 +459,6 @@ hr {
     font-size: 12px;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-}
 
 .close {
     float: right;
@@ -410,6 +484,164 @@ hr {
     display: block;
     width: 100%;
     margin-top: 10px;
+}
+
+.submit-btn {
+    background-color: #1e271e;
+    color: #4bcffa;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px; /* Lebih halus */
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: 
+        box-shadow 0.3s ease-in-out,
+        transform 0.2s ease-in-out,
+        background-color 0.3s ease-in-out;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: #283528;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-btn {
+    position: absolute;
+    top: 20px; /* Geser lebih ke atas */
+    left: 20px; /* Posisi ke kanan atas */
+    z-index: 1000;
+}
+
+/* Tombol Edit */
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #1e271e;
+    color: #4bcffa;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: 
+        box-shadow 0.3s ease-in-out,
+        transform 0.2s ease-in-out,
+        background-color 0.3s ease-in-out;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.edit-btn:hover {
+    background-color: #243024;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Edit */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-form label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.2s ease-in-out;
+}
+
+.edit-form input:focus {
+    border-color: #28a745;
+    outline: none;
+}
+
+/* Tombol Simpan */
+.btn-save {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-save:hover {
+    background: #218838;
+}
+
+/* Modal Edit */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+    
+}
+
+.modal-content {
+    background: #E2F3F4;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close:hover {
+    color: red;
 }
 
 
