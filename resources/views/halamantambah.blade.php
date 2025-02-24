@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
     <title>halaman</title>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar" data-aos="fade-down">
-        <div class="container navbar-container">
+    <nav class="sidebar" data-aos="fade-down">  
+        <div class="sidebar-container">
             <!-- Logo -->
             <div class="navbar-logo">
                 <h1 class="logo-text">
@@ -32,30 +32,23 @@
             </div>
 
             <!-- Navigation Menu -->
-            <ul class="navbar-menu">
-                <li><a href="#home"><i class="bi bi-house-fill"></i>Beranda</a></li>
-                <li><a href="#products"><i class="bi bi-bag-fill"></i> Produk</a></li>
+            <ul class="sidebar-menu">
+                <li><a href="/"><i class="bi bi-house-fill"></i>Beranda</a></li>
+                <li><a href="/"><i class="bi bi-bag-fill"></i> Produk</a></li>
                 <li>
-                    <a href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda" target="_blank">
-                      <i class="bi bi-telephone-fill"></i> Hubungi
+                    <a href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda"
+                        target="_blank">
+                        <i class="bi bi-telephone-fill"></i> Hubungi
                     </a>
-                  </li>
-                <li><a href="/keranjang" class="cart-button"><i class="bi bi-cart-fill"></i> Keranjang</a></li>      
-
-                @auth
-                    <!-- Jika pengguna sudah login -->
-                    <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-fill"></i> Dashboard</a></li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="btn btn-danger">Logout</button>
-                        </form>
-                    </li>
-                @else
-                    <!-- Jika pengguna belum login -->
-                    <li><a href="{{ route('login') }}" class="btn btn-success">Login</a></li>
-                    <li><a href="{{ route('register') }}" class="btn btn-primary">Register</a></li>
-                @endauth
+                </li>
+                <li><a href="/keranjang" class="cart-button"><i class="bi bi-cart-fill"></i> Keranjang</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-circle"></i>Dashboard</a></li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>

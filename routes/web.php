@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,27 +15,26 @@ Route::get('login', function () {
     return view('auth.login');
 })->name('login');
 
-// Menampilkan form registrasi
+
 Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
 
 Route::post('register', [RegisteredUserController::class, 'store']);
 
-// Sertakan rute dari auth.php
+
 require __DIR__.'/auth.php';
 
 Route::post('/product/update', [ProductController::class, 'update'])->name('product.update');
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [ShopController::class, 'index'])
         ->middleware('auth')
         ->name('home');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
 
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+    
+    Route::get('/total-users', [DashboardController::class, 'totalUsers'])->name('total.users');
+    Route::get('/total-sales', [DashboardController::class, 'totalSales'])->name('total.sales');
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

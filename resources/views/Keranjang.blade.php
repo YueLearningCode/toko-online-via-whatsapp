@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
             
                 @auth
                     <!-- Jika pengguna sudah login -->
-                    <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-fill"></i> Dashboard</a></li>
+                    <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-circle"></i>Dashboard</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

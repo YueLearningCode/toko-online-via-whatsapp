@@ -24,12 +24,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate(); // Mencoba melakukan autentikasi
 
-        $request->session()->regenerate();
+            $request->session()->regenerate(); // Jika berhasil, regenerasi session
 
-        return redirect('/');
+            return redirect('/'); // Redirect ke halaman utama jika login sukses
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()->with('error', 'Password salah atau username tidak ada');
+        }
     }
+
 
     /**
      * Destroy an authenticated session.

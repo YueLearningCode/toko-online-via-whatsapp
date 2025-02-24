@@ -15,7 +15,7 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        $product = Product::find($request->id);
+        $product = Product::find($request->id); 
         if ($product) {
             $product->stock = $request->stock;
             $product->price = $request->price;

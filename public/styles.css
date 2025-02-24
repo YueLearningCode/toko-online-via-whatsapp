@@ -3,20 +3,21 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     padding: 0;
+    
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: #6DC7D1;
+    background-color: #533fdb;
     padding: 20px;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    
 }
-
-
 
 .navbar-container {
     display: flex;
@@ -27,7 +28,7 @@ body {
 }
 
 .navbar-logo img {
-    width: 90px; /* Membuat logo lebih besar */
+    width: 90px;
     height: auto;
 }
 
@@ -39,12 +40,11 @@ body {
     letter-spacing: 2px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Beri jarak antara ikon dan teks */
+    gap: 8px;
 }
 
 .logo-text i {
-    font-size: 28px; /* Ukuran ikon lebih besar */
-    
+    font-size: 28px;
 }
 
 .navbar-menu {
@@ -55,7 +55,7 @@ body {
 }
 
 .navbar-menu li {
-    margin-left: 30px; /* Memberi lebih banyak jarak antar menu */
+    margin-left: 30px;
 }
 
 .navbar-menu li a {
@@ -70,8 +70,56 @@ body {
 
 .navbar-menu li a:hover {
     text-decoration: underline;
-    font-size: 22px; /* Efek hover yang menonjol */
+    font-size: 22px;
 }
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #533fdb;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.sidebar-container {
+    padding: 20px;
+}
+
+.sidebar-logo {
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu li a {
+    color: #E2F3F4;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    text-decoration: underline;
+    font-size: 20px;
+}
+
 
 
 /* Container */
@@ -83,11 +131,13 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right, #E2F3F4, #CDE5E7);
+    background: linear-gradient(to right, #E2F3F4, #6a59e0);
     color: rgb(0, 0, 0);
     padding: 150px 0;
     position: relative;
     overflow: hidden;
+   
+    
 }
 
 /* Gunakan Flexbox */
@@ -112,7 +162,7 @@ body {
 }
 
 .hero-text .brand {
-    color: #6DC7D1;
+    color: #533fdb;
     font-style: italic;
 }
 
@@ -210,6 +260,64 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
+/* About Us Section */
+.about-us {
+    background: #533fdb;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 500px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #E2F3F4;
+    
+}
+
+.about-text .brand {    
+    font-style: italic;
+    color: #E2F3F4;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+}
+
 
 
 /* Header */
@@ -222,7 +330,9 @@ header {
 /* Products Section */
 .products {
     padding: 40px 0;
-    background-color: #E2F3F4;
+    background:#E2F3F4;
+    padding-left: 250px;
+    
 }
 
 /* Pusatkan judul Produk Kami */
@@ -361,9 +471,11 @@ header {
 
 
 footer {
-    background-color: #6DC7D1;
+    background-color: #533fdb;
     color: #E2F3F4;
     padding: 20px 0;
+    padding-left: 250px;
+    
 }
 
 .container {
@@ -494,7 +606,7 @@ hr {
     font-size: 18px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 8px; /* Lebih halus */
+    border-radius: 8px; 
     letter-spacing: 2px;
     font-weight: bold;
     transition: 
@@ -516,12 +628,7 @@ hr {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.admin-btn {
-    position: absolute;
-    top: 20px; /* Geser lebih ke atas */
-    left: 20px; /* Posisi ke kanan atas */
-    z-index: 1000;
-}
+
 
 /* Tombol Edit */
 .edit-btn {
@@ -599,7 +706,7 @@ hr {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1050;
     left: 0;
     top: 0;
     width: 100%;
@@ -625,10 +732,18 @@ hr {
     transition: transform 0.3s ease-in-out;
 }
 
+.modal-backdrop {
+    display: none !important;
+}
+
+
+
 .modal.show .modal-content {
     transform: scale(1);
     
 }
+
+
 
 .close {
     position: absolute;
@@ -643,5 +758,22 @@ hr {
 .close:hover {
     color: red;
 }
+
+/* Jika admin, tambahkan padding kiri */
+.admin .hero-section,
+.admin .products,
+.admin .about-us,
+.admin footer {
+    padding-left: 250px;
+}
+
+/* Jika user biasa, hapus padding kiri */
+.user .hero-section,
+.user .products,
+.user footer {
+    padding-left: 0;
+}
+
+
 
 

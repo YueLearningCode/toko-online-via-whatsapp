@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
     @vite(['resources/js/login.js'])
     <link rel="stylesheet" href="{{ asset('login.css') }}">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon">
 </head>
+
 <body>
     <div class="container">
         <div class="form-box login">
@@ -25,17 +29,21 @@
                     <input type="password" name="password" placeholder="Password" required>
                     <i class="bx bxs-lock-alt"></i>
                 </div>
+                <!-- Pesan Error -->
+                @if (session('error'))
+                    <div class="error-message" style="color: red; font-size: 14px; margin-bottom: 10px;">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <div class="forgot-link">
                     <a href="{{ route('password.request') }}">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
                 <p>or login with social platforms</p>
                 <div class="social-icons">
-                    <a href="#"><i class="bx bxl-google"></i></a>
-                    <a href="#"><i class="bx bxl-facebook"></i></a>
-                    <a href="#"><i class="bx bxl-github"></i></a>
-                    <a href="#"><i class="bx bxl-linkedin"></i></a>
-                </div>
+                    <a href="https://accounts.google.com/signin"><i class="bx bxl-google"></i></a>
+                    <a href="https://www.facebook.com/login"><i class="bx bxl-facebook"></i></a>
+                </div>                
             </form>
         </div>
 
@@ -58,11 +66,9 @@
                 <button type="submit" class="btn">Register</button>
                 <p>or register with social platforms</p>
                 <div class="social-icons">
-                    <a href="#"><i class="bx bxl-google"></i></a>
-                    <a href="#"><i class="bx bxl-facebook"></i></a>
-                    <a href="#"><i class="bx bxl-github"></i></a>
-                    <a href="#"><i class="bx bxl-linkedin"></i></a>
-                </div>
+                    <a href="https://accounts.google.com/signin"><i class="bx bxl-google"></i></a>
+                    <a href="https://www.facebook.com/login"><i class="bx bxl-facebook"></i></a>
+                </div>                
             </form>
         </div>
 
@@ -82,4 +88,5 @@
     </div>
 
 </body>
+
 </html>
