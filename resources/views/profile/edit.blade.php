@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Users</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('Profile.css') }}">
     <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
@@ -21,10 +22,9 @@
                     <li><a href="/total-users"><i class="bi bi-people"></i> Total Users</a></li>
                     <a class="submit-btn admin-btn" href="halamantambah" role="button" data-aos="zoom-in"
                         data-aos-delay="400">
-                        Tambah Produk
+                        <i class='bx bx-plus'></i> Tambah Produk
                     </a>
                     <li><a href="/total-sales"><i class="bi bi-bar-chart"></i> Total Sales</a></li>
-                    <li><a href="/profile"><i class="bi bi-person"></i> Profile</a></li>
                 </ul>
             </div>
         </div>

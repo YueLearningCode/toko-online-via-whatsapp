@@ -100,13 +100,13 @@ body {
 }
 
 .btn-primary {
-    background-color: #6DC7D1;
+    background-color: #533fdb;
     border: none;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #59AAB5;
+    background-color: #3c2ab5;
     transform: scale(1.05);
 }
 

@@ -56,10 +56,17 @@ html, body {
 
 /* Main Content */
 .main-content {
-    margin-left: 250px;
+    flex: 1;
     padding: 30px;
-    min-height: 100vh;
+    margin-left: 250px;
+    padding-top: 80px; /* Tambahkan padding-top agar tidak tertimpa */
     transition: all 0.3s;
+}
+
+.submit-btn i {
+    margin-right: 5px;  
+    font-size: 20px;    
+    vertical-align: middle;
 }
 
 .section {
@@ -110,4 +117,38 @@ html, body {
 .table-hover tbody tr:hover {
     background: rgba(54, 162, 235, 0.2);
     cursor: pointer;
+}
+
+.top-right-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+    z-index: 9999; /* Menempatkan di atas elemen lain */
+}
+
+
+.top-right-profile a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.top-right-profile a:hover {
+    color: #533fdb;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.top-right-profile i {
+    margin-right: 8px;
+    font-size: 24px;
+    color: #533fdb;
 }
