@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('Profile.css') }}">
     <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -19,12 +21,14 @@
                 <h2>FLASHSTORE</h2>
                 <ul>
                     <li><a href="/dashboard"><i class="bi bi-house-door"></i> Home</a></li>
-                    <li><a href="/total-users"><i class="bi bi-people"></i> Total Users</a></li>
-                    <a class="submit-btn admin-btn" href="halamantambah" role="button" data-aos="zoom-in"
-                        data-aos-delay="400">
-                        <i class='bx bx-plus'></i> Tambah Produk
-                    </a>
-                    <li><a href="/total-sales"><i class="bi bi-bar-chart"></i> Total Sales</a></li>
+                    @if (auth()->check() && auth()->user()->role === 'admin')
+                        <li><a href="/total-users"><i class="bi bi-people"></i> Total Users</a></li>
+                        <li><a href="/total-sales"><i class="bi bi-bar-chart"></i> Total Sales</a></li>
+                        <a class="submit-btn admin-btn" href="halamantambah" role="button" data-aos="zoom-in"
+                            data-aos-delay="400">
+                            <i class='bx bx-plus'></i> Tambah Produk
+                        </a>
+                    @endif
                 </ul>
             </div>
         </div>
