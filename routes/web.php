@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\OrderHistoryController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\DashboardController;
@@ -40,6 +42,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Wishlist Routes
+Route::middleware('auth')->group(function () {
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('/wishlist/store', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::post('/wishlist/add', [WishlistController::class, 'store'])->name('wishlist.add');
+    Route::delete('/wishlist/remove/{id}', [WishlistController::class, 'destroy'])->name('wishlist.remove');
+});
+
+// Order History Routes
+Route::middleware('auth')->group(function () {
+    Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('order_history.index');
+    Route::post('/order-history', [OrderHistoryController::class, 'store'])->name('order_history.store');
+    Route::post('/pesan-sekarang', [OrderHistoryController::class, 'store'])->name('pesan.sekarang');
+    Route::delete('/orders/{id}/remove', [OrderHistoryController::class, 'destroy'])->name('orders.remove');
+
+
+});
 
 Route::get('/', [ShopController::class, 'index'])->name('home');
 Route::get('/keranjang', [ShopController::class, 'keranjang'])->name('keranjang');

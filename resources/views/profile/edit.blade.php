@@ -21,6 +21,10 @@
                 <h2>FLASHSTORE</h2>
                 <ul>
                     <li><a href="/dashboard"><i class="bi bi-house-door"></i> Home</a></li>
+                    @if (auth()->check() && auth()->user()->role === 'user')
+                        <li><a href="/wishlist"><i class="bi bi-heart"></i> Wishlist</a></li>
+                        <li><a href="/order-history"><i class="bi bi-bag"></i> Order History</a></li>
+                    @endif
                     @if (auth()->check() && auth()->user()->role === 'admin')
                         <li><a href="/total-users"><i class="bi bi-people"></i> Total Users</a></li>
                         <li><a href="/total-sales"><i class="bi bi-bar-chart"></i> Total Sales</a></li>
@@ -51,8 +55,56 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Update Profile</button>
                 </form>
+            
+                <!-- Update Password -->
+                <section class="mt-4">
+                    <header>
+                        <h2>Update Password</h2>
+                        <p>Ensure your account is using a long, random password to stay secure.</p>
+                    </header>
+                    <form method="post" action="{{ route('password.update') }}" class="mt-3">
+                        @csrf
+                        @method('put')
+                        <div class="form-group">
+                            <label for="current_password">Current Password</label>
+                            <input type="password" name="current_password" id="current_password" class="form-control"
+                                autocomplete="current-password">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="password">New Password</label>
+                            <input type="password" name="password" id="password" class="form-control"
+                                autocomplete="new-password">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="password_confirmation">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
+                                autocomplete="new-password">
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3">Save</button>
+                    </form>
+                </section>
+            
+                <!-- Delete Account -->
+                <section class="mt-4">
+                    <header>
+                        <h2>Delete Account</h2>
+                        <p>Once your account is deleted, all of its resources and data will be permanently deleted.</p>
+                    </header>
+                    <form method="post" action="{{ route('profile.destroy') }}">
+                        @csrf
+                        @method('delete')
+                        <div class="form-group">
+                            <label for="password_delete">Password</label>
+                            <input type="password" name="password" id="password_delete" class="form-control"
+                                placeholder="Enter your password to confirm">
+                        </div>
+                        <button type="submit" class="btn btn-danger mt-3">Delete Account</button>
+                    </form>
+                </section>
             </section>
+            
         </div>
+
     </div>
 </body>
 

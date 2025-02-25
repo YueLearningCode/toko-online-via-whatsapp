@@ -208,6 +208,17 @@
                                 <input type="hidden" name="price" value="{{ $product['price'] }}">
                                 <button type="submit" class="btn-add-to-cart">Tambah Keranjang</button>
                             </form>
+                            @if (Auth::check() && Auth::user()->role === 'user')
+                                <form action="{{ route('wishlist.store') }}" method="POST"
+                                    style="margin-top: 10px;">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product['id'] }}">
+                                    <button type="submit" class="btn-wishlist">
+                                        <i class='bx bx-heart'></i> Tambah ke Wishlist
+                                    </button>
+                                </form>
+                            @endif
+
                         </div>
                         <div id="editModal" class="modal">
                             <div class="modal-content">

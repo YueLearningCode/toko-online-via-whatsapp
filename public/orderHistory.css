@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    overflow-x: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: #533fdb;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.3s;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 250px;
+    padding-top: 50px;
+    transition: all 0.3s;
+}
+
+.order-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+    transform: scale(1.05);
+}
+
+.order-card h5 {
+    color: #333;
+    font-weight: bold;
+}
+
+.order-card p {
+    color: #777;
+}
+
+.order-total {
+    font-size: 20px;
+    color: #533fdb;
+    font-weight: bold;
+}
+
+.top-right-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 18px;
+        
+}
+
+
+.top-right-profile a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+}
+
+.top-right-profile a:hover {
+    color: #533fdb;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.top-right-profile i {
+    margin-right: 8px;
+    font-size: 24px;
+    color: #533fdb;
+}

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Keranjang Belanja</title>
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
@@ -11,6 +13,7 @@
     <link rel="icon" href="{{ asset('images/FlashStoreU.ico') }}" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="navbar-container">
@@ -21,12 +24,13 @@
                 <li><a href="/"><i class="bi bi-house-fill"></i>Beranda</a></li>
                 <li><a href="/"><i class="bi bi-bag-fill"></i> Produk</a></li>
                 <li>
-                    <a href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda" target="_blank">
-                      <i class="bi bi-telephone-fill"></i> Hubungi
+                    <a href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda"
+                        target="_blank">
+                        <i class="bi bi-telephone-fill"></i> Hubungi
                     </a>
-                  </li>
+                </li>
                 <li><a href="/keranjang" class="cart-button"><i class="bi bi-cart-fill"></i> Keranjang</a></li>
-            
+
                 @auth
                     <!-- Jika pengguna sudah login -->
                     <li><a href="{{ route('dashboard') }}"><i class="bi bi-person-circle"></i>Dashboard</a></li>
@@ -71,19 +75,21 @@
                         <tbody>
                             @php $total = 0; @endphp
                             @foreach ($keranjang as $item)
-                                @php 
-                                    $subtotal = $item->price * $item->quantity; 
+                                @php
+                                    $subtotal = $item->price * $item->quantity;
                                     $total += $subtotal;
                                 @endphp
                                 <tr class="product-item">
                                     <td>{{ optional($item->product)->name ?? 'Produk tidak ditemukan' }}</td>
                                     <td>${{ number_format($item->price, 2) }}</td>
                                     <td>
-                                        <input type="number" name="quantities[{{ $item->id }}]" value="{{ $item->quantity }}" min="1">
+                                        <input type="number" name="quantities[{{ $item->id }}]"
+                                            value="{{ $item->quantity }}" min="1">
                                     </td>
                                     <td>${{ number_format($subtotal, 2) }}</td>
                                     <td>
-                                        <a href="{{ route('remove-from-keranjang', $item->id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('remove-from-keranjang', $item->id) }}"
+                                            class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -93,17 +99,20 @@
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn-update-cart">
                             <i class="bi bi-bag-check-fill"></i> Perbarui Keranjang
-                        </button>                        
+                        </button>
                         @php
                             $pesan = 'Halo, saya ingin memesan produk berikut:';
                             foreach ($keranjang as $item) {
-                                $pesan .= "- " . optional($item->product)->name . " (" . $item->quantity . "x) ";
+                                $pesan .= '- ' . optional($item->product)->name . ' (' . $item->quantity . 'x) ';
                             }
                             $pesan .= 'Terima kasih!';
                         @endphp
-                        <a class="btn-whatsapp" href="https://wa.me/123456789?text={{ urlencode($pesan) }}" target="_blank">
+                        <script>
+                            var pesanWA = {!! json_encode($pesan) !!};
+                        </script>
+                        <a class="btn-whatsapp" href="#" onclick="prosesPesanan(event)">
                             <i class="bi bi-telephone-fill"></i> Pesan sekarang
-                        </a>                        
+                        </a>
                     </div>
                 </form>
             @else
@@ -116,7 +125,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3><img  class="footer-logo"> FlashStore</h3>
+                    <h3><img class="footer-logo"> FlashStore</h3>
                     <p>Tempat Belanja </p>
                 </div>
                 <div class="footer-links">
@@ -125,7 +134,9 @@
                         <ul>
                             <li><a href="#home">Beranda</a></li>
                             <li><a href="#products">Produk</a></li>
-                            <li><a href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda">Hubungi</a></li>
+                            <li><a
+                                    href="https://wa.me/123456789?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20Anda">Hubungi</a>
+                            </li>
                         </ul>
                     </div>
                     <div class="footer-column">
@@ -142,8 +153,10 @@
                         <p>📞 853 6383 4829</p>
                         <p>📧 flashstore@gmail.com</p>
                         <div class="social-icons">
-                            <a href="https://www.facebook.com/flashsoftindonesia/"><img src="images/facebook.png" alt="Facebook"></a>
-                            <a href="https://www.instagram.com/flashsoftindonesia/"><img src="images/instagram.png" alt="Instagram"></a>
+                            <a href="https://www.facebook.com/flashsoftindonesia/"><img src="images/facebook.png"
+                                    alt="Facebook"></a>
+                            <a href="https://www.instagram.com/flashsoftindonesia/"><img src="images/instagram.png"
+                                    alt="Instagram"></a>
                         </div>
                     </div>
                 </div>
@@ -163,6 +176,45 @@
     </script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+
+
+    <script>
+        function prosesPesanan(event) {
+            event.preventDefault();
+
+            // Kirim request ke Laravel untuk menyimpan pesanan
+            fetch("{{ route('pesan.sekarang') }}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    // Pastikan response adalah JSON
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Redirect ke WhatsApp setelah berhasil
+                        window.location.href = "https://wa.me/123456789?text=" + encodeURIComponent(pesanWA);
+                    } else {
+                        alert(data.error || 'Terjadi kesalahan saat memproses pesanan.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan. Coba lagi nanti.');
+                });
+        }
+    </script>
+
+
+
 </body>
+
 </html>

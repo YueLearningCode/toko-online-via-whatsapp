@@ -331,7 +331,7 @@ header {
 .products {
     padding: 40px 0;
     background: white;
-    padding-left: 250px;
+    
     
 }
 
@@ -445,6 +445,19 @@ header {
 .product-details .stock {
     font-size: 14px;
     color: #ff5733; /* Warna merah jika ingin menonjolkan stok */
+}
+
+.btn-wishlist {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.btn-wishlist:hover {
+    color: #e60000;
 }
 
 

@@ -31,12 +31,13 @@
                         data-aos-delay="400">
                         <i class='bx bx-plus'></i> Tambah Produk
                     </a>
-                
-                <!-- Sidebar untuk User -->
+
+
+                    <!-- Sidebar untuk User -->
                 @else
                     <li><a href="/"><i class="bi bi-house-door"></i> Home</a></li>
                     <li><a href="/wishlist"><i class="bi bi-heart"></i> Wishlist</a></li>
-                    <li><a href="/order-history"><i class="bi bi-bag"></i> Order History</a></li>
+                    <li><a href="/order-history"><i class="bx bx-history"></i> Order History</a></li>
                 @endif
             </ul>
         </div>
@@ -51,8 +52,14 @@
         <!-- Main Content -->
         <div class="main-content">
             <div class="welcome-message">
-                <h1>You're logged in! <span>Welcome to FlashStore!</span></h1>
-                <p>Explore the dashboard to manage users, view sales, and update your profile.</p>
+                @if (auth()->check() && auth()->user()->role === 'admin')
+                    <h1>You're logged in! <span>Welcome to FlashStore!</span></h1>
+                    <p>Explore the dashboard to manage users, view sales, and update your profile.</p>
+                @endif
+                @if (auth()->check() && auth()->user()->role === 'user')
+                    <h1>You're logged in! <span>Welcome to FlashStore!</span></h1>
+                    <p>Explore the dashboard to manage wishlist, order history, and update your profile.</p>
+                @endif
             </div>
 
             <!-- Konten Khusus Admin -->
@@ -77,8 +84,8 @@
                         </div>
                     </div>
                 </div>
-            
-            <!-- Konten Khusus User -->
+
+                <!-- Konten Khusus User -->
             @else
                 <div class="row">
                     <div class="col-md-6 mb-4">
